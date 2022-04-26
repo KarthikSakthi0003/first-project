@@ -1,0 +1,133 @@
+@use "../abstract/functions"as func;
+
+
+/* // X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px)  */
+
+
+
+@mixin responsive ($breakpoint, $scope:"") {
+    // X-Small devices (portrait phones, less than 576px)
+
+    @if $breakpoint==xs {
+
+        @media only screen and (max-width: 576px) {
+            //CSS-Code
+            @content; //it is a inbuilt scss function
+        }
+
+    }
+
+    //Small devices (landscape phones, 576px and up)
+    @else if $breakpoint==sm {
+
+        @if $scope=="sm-md" {
+            @media only screen and (min-width: 576px) and (max-width:768px) {
+                //CSS-Code
+                @content; //it is a inbuilt scss function
+            }
+
+        }
+
+        @else {
+            @media only screen and (min-width: 576px) {
+                //CSS-Code
+                @content; //it is a inbuilt scss function
+            }
+        }
+
+    }
+
+
+    // Medium devices (tablets, 768px and up)
+
+    @else if $breakpoint==md {
+
+        @media only screen and (min-width: 768px) {
+            //CSS-Code
+            @content; //it is a inbuilt scss function
+        }
+
+    }
+
+    // Large devices (desktops, 992px and up)
+
+    @else if $breakpoint==lg {
+
+        @media only screen and (min-width: 992px) {
+            //CSS-Code
+            @content; //it is a inbuilt scss function
+        }
+
+    }
+
+
+    // X-Large devices (large desktops, 1200px and up)
+
+    @else if $breakpoint==xlg {
+
+        @media only screen and (min-width: 1200px) {
+            //CSS-Code
+            @content; //it is a inbuilt scss function
+        }
+
+    }
+
+
+    // XX-Large devices (larger desktops, 1400px and up)
+
+    @else if $breakpoint==xxlg {
+
+        @media only screen and (min-width: 1400px) {
+            //CSS-Code
+            @content; //it is a inbuilt scss function
+        }
+
+    }
+
+}
+
+@mixin menu__bar {
+    position: fixed;
+    top: -100%;
+    left: 0%;
+    width: 100vw; //viewWidth = alternative for %
+    height: 100vh;
+    background-color: func.theme-colors(menu-bg);
+    z-index: 1;
+    transition: 500ms;
+
+    &.show {
+        display: block;
+        top: 64px;
+        text-align: center;
+    }
+
+    & li {
+        padding: 2rem;
+
+        a {
+            color: #fff;
+
+            &.active {
+                color: blue;
+            }
+        }
+    }
+
+}

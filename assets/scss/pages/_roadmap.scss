@@ -1,0 +1,236 @@
+@use "../abstract/variable"as var;
+@use "../abstract/functions"as func;
+@use "../abstract/mixins"as mixins;
+
+.roadmap {
+    padding: 8rem 20rem;
+
+    @include mixins.responsive(xs) {
+        padding: 4rem 2rem;
+    }
+
+    @include mixins.responsive(sm) {
+        padding: 4rem 2rem;
+    }
+
+    @include mixins.responsive(lg) {
+        padding: 8rem 4rem;
+    }
+
+    @include mixins.responsive(xlg) {
+        padding: 8rem 4rem;
+    }
+
+    @include mixins.responsive(xxlg) {
+        padding: 8rem 10rem;
+    }
+
+
+    &--heading {
+        text-align: center;
+    }
+
+    &--items {
+
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+        display: flex;
+
+        @include mixins.responsive(xs) {
+            flex-direction: column;
+
+        }
+
+        @include mixins.responsive(sm) {
+            flex-direction: column;
+
+        }
+
+        @include mixins.responsive(lg) {
+            flex-direction: row;
+        }
+
+    }
+
+    &--item {
+        transition: 500ms;
+        position: relative;
+        padding: 3rem;
+        text-align: center;
+        max-width: 350px;
+        cursor: pointer;
+        //margin-left: 1rem;
+        filter: grayscale(100%);
+
+        @include mixins.responsive(lg) {
+            padding: 0;
+            max-width: 600px;
+        }
+
+        @include mixins.responsive(xlg) {
+            padding: 1.5rem;
+
+        }
+
+
+        &:hover &__img::after {
+
+            animation: rotate-infinite 4000ms linear infinite;
+        }
+
+
+        &__img {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+
+
+
+            img {
+                width: 60px;
+                margin-top: 25px;
+            }
+
+            &::after {
+                position: absolute;
+                top: 0;
+                left: -5px;
+                content: "";
+                width: 100%;
+                height: 100%;
+                border: 4px dotted func.theme-colors();
+                border-radius: 50%;
+
+            }
+        }
+
+        &__contents {
+            margin-top: 2rem;
+
+            h5 {
+                font-size: 1.5rem;
+                font-weight: 600;
+
+                @include mixins.responsive(lg) {
+                    font-size: 1rem;
+                }
+
+                @include mixins.responsive(xxlg) {
+                    font-size: 1.5rem;
+                }
+
+            }
+
+            &__para {
+                color: grey;
+                line-height: 1.5;
+
+                @include mixins.responsive(lg) {
+                    font-size: 0.9rem;
+                }
+
+                @include mixins.responsive(xxlg) {
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        &:not(:last-child)::before {
+            transition: 500ms;
+            position: absolute;
+            top: 35%;
+            right: -20%;
+            content: "";
+            width: 70px;
+            height: 70px;
+            font-family: "Font Awesome 5 free";
+            font-weight: 600;
+            font-size: 3rem;
+            color: black;
+            line-height: 0.5;
+            z-index: 1;
+
+            @include mixins.responsive(xs) {
+                content: "\f107";
+                top: 90%;
+                left: 39%;
+            }
+
+            @include mixins.responsive(sm) {
+                content: "\f107";
+                top: 90%;
+                left: 40%;
+            }
+
+            @include mixins.responsive(lg) {
+                content: "";
+                top: 27%;
+                left: 90%;
+            }
+
+
+        }
+
+        &:hover:not(:last-child)::before {
+            right: -22%;
+            animation: color-change 6000ms linear infinite;
+        }
+
+        &:hover:last-child::after {
+            position: absolute;
+            content: " ";
+            top: 35%;
+            right: -30%;
+            /* width: 100px;
+            height: 100px; */
+            font-family: "Font Awesome 5 free";
+            font-weight: 600;
+            font-size: 3rem;
+            color: blue;
+            line-height: 0.5;
+            z-index: 1;
+
+            @include mixins.responsive(xs) {
+                top: 90%;
+                left: -20%;
+            }
+
+            @include mixins.responsive(sm) {
+                top: 90%;
+                left: -20%;
+            }
+
+            @include mixins.responsive(lg) {
+
+                left: auto;
+                top: 27%;
+                right: -15%;
+            }
+
+
+            @include mixins.responsive(xxlg) {
+                top: 35%;
+                left: auto;
+                right: -30%;
+            }
+
+
+        }
+
+
+
+        &:hover {
+            filter: grayscale(0%);
+        }
+
+        &:hover h5 {
+            color: func.theme-colors();
+        }
+    }
+
+
+
+
+}

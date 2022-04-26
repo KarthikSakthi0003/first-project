@@ -1,0 +1,219 @@
+@use "../abstract/functions"as func;
+@use "../abstract/mixins"as mixins;
+
+
+.background-shapes {
+
+
+    @include mixins.responsive(xs) {
+        display: none;
+
+    }
+
+    .box1 {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        width: 15px;
+        height: 15px;
+        background-color: transparent;
+        border: 3px solid func.theme-colors();
+        border-radius: 0.35rem;
+        z-index: -1;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+
+        @include mixins.responsive(sm) {
+
+            top: 15%;
+            left: 10%
+        }
+    }
+
+    .box2 {
+        position: absolute;
+        top: 100%;
+        left: 60%;
+        width: 15px;
+        height: 15px;
+        background-color: transparent;
+        border: 3px solid func.theme-colors();
+        border-radius: 0.35rem;
+        z-index: -1;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+    }
+
+    .box3 {
+        position: absolute;
+        top: 30%;
+        left: 90%;
+        width: 15px;
+        height: 15px;
+        background-color: transparent;
+        border: 3px solid func.theme-colors();
+        border-radius: 0.35rem;
+        z-index: -1;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+    }
+
+    .dot1 {
+        position: absolute;
+        top: 77%;
+        left: 6%;
+        width: 8px;
+        height: 8px;
+        background-color: func.theme-colors();
+
+
+        border-radius: 50%;
+        z-index: -1;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+    }
+
+    .dot2 {
+        position: absolute;
+        top: 18%;
+        right: 6%;
+        width: 8px;
+        height: 8px;
+        background-color: #f4284a;
+
+
+        border-radius: 50%;
+        z-index: -1;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+    }
+
+    .dot3 {
+        position: absolute;
+        top: 100%;
+        left: 43%;
+        width: 8px;
+        height: 8px;
+        background-color: #f4284a;
+
+
+        border-radius: 50%;
+        z-index: -1;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+    }
+
+    .dot4 {
+        position: absolute;
+        top: 91%;
+        right: 5%;
+        width: 8px;
+        height: 8px;
+        background-color: func.theme-colors();
+
+
+        border-radius: 50%;
+        z-index: -1;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+    }
+
+    .heart1 {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 51%;
+        left: 13%;
+        z-index: -1;
+        color: #f4284a;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+
+        @include mixins.responsive(sm) {
+            top: 22%;
+            left: 5%;
+        }
+
+    }
+
+    .heart2 {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 51%;
+        right: 8%;
+        z-index: -1;
+        color: #f4284a;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+
+        @include mixins.responsive(lg) {
+            top: 51%;
+            right: 5%;
+        }
+
+
+    }
+
+    .heart3 {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 47%;
+        left: 8%;
+        z-index: -1;
+        color: #f4284a;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+
+        @include mixins.responsive(sm) {
+            display: none;
+        }
+
+        @include mixins.responsive(md) {
+            display: none;
+        }
+
+        @include mixins.responsive(lg) {
+            display: none;
+        }
+
+        @include mixins.responsive(xlg) {
+            display: block;
+            top: 47%;
+            left: 8%;
+        }
+
+    }
+
+    .circle1 {
+        position: absolute;
+        top: 100%;
+        left: 21%;
+        width: 15px;
+        height: 15px;
+
+        border: 3px solid func.theme-colors();
+        border-radius: 50%;
+        z-index: -1;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+    }
+
+    .circle2 {
+        position: absolute;
+        top: 24%;
+        left: 60%;
+        width: 15px;
+        height: 15px;
+
+        border: 3px solid #f4284a;
+        border-radius: 50%;
+        z-index: -1;
+        transform: rotate(360deg);
+        animation: box linear 5s infinite;
+
+        @include mixins.responsive(sm) {
+            top: 14%;
+        }
+    }
+
+
+}
